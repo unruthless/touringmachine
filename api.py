@@ -6,7 +6,7 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/api/v0')
-def home():
+def api():
     return "Hello, API World!"
 
 
