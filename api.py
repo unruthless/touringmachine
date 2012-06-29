@@ -2,12 +2,17 @@
 API Endpoint for Touring Machine
 """
 
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
-@app.route('/api/v0')
+
+@app.route('/api/v0', methods=['GET', 'POST'])
 def api():
-    return "This is the touring machine api. Please make a post with a origin & destination parameters for output."
+    if request.method == 'POST':
+        return "{'DUMMY': 'DATA'}"
+    else:
+        return "This is the touring machine api.\
+            Please POST with origin & destination parameters for valid output."
 
 
 if __name__ == '__main__':
