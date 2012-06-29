@@ -9,7 +9,8 @@ app = Flask(__name__)
 @app.route('/api/v0', methods=['GET', 'POST'])
 def api():
     if request.method == 'POST':
-        return "{'DUMMY': 'DATA'}"
+        if request.form['origin'] and request.form['destination']:
+            return "{'DUMMY': 'DATA'}"
     else:
         return "This is the touring machine api.\
             Please POST with origin & destination parameters for valid output."
