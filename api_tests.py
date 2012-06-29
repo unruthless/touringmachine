@@ -4,12 +4,14 @@ import tempfile
 
 import api
 
+
 class APITestCase(unittest.TestCase):
 
     def setUp(self):
         self.api = api.app.test_client()
 
-    def tearDown(self): pass
+    def tearDown(self):
+        pass
 
     def test_endpoint(self):
         resp = self.api.get('/api/v0')
