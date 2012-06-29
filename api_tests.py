@@ -22,5 +22,20 @@ class APITestCase(unittest.TestCase):
         ), follow_redirects=True)
         self.assertEqual(resp.status_code, 200)
 
+    def test_400_when_no_origin(self):
+        resp = self.api.post('/api/v0', data=dict(
+            origin=None,
+            detination=90210
+        ), follow_redirects=True)
+        self.assertEqual(resp.status_code, 400)
+
+    def test_400_when_no_destination(self):
+        resp = self.api.post('/api/v0', data=dict(
+            origin=94103,
+            detination=None
+        ), follow_redirects=True)
+        self.assertEqual(resp.status_code, 400)
+
+
 if __name__ == '__main__':
     unittest.main()
