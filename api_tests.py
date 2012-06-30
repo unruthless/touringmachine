@@ -38,6 +38,12 @@ class APITestCase(unittest.TestCase):
         ), follow_redirects=True)
         self.assertEqual(resp.status_code, 400)
 
+    def test_distance_returned(self):
+        resp = self.api.post('/api/v0', data=dict(
+            origin=94103,
+            destination=90210
+        ), follow_redirects=True)
+        self.assertTrue('375 mi' in resp.data)
 
 if __name__ == '__main__':
     unittest.main()
