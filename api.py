@@ -17,7 +17,8 @@ def api():
                 'destination': request.form['destination'],
                 'sensor': 'false'
             }
-            r = requests.get('http://maps.googleapis.com/maps/api/directions/json', params=params)
+            gmaps_api = 'http://maps.googleapis.com/maps/api/directions/json'
+            r = requests.get(gmaps_api, params=params)
             return r.text
     else:
         return "This is the touring machine api.\
